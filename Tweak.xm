@@ -10,7 +10,8 @@
 @end
 
 @implementation UWUnsplashWalls
-- (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
+
+- (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event forListenerName:(NSString *)listenerName {
     @autoreleasepool {
         UIScreen *screen = UIScreen.mainScreen;
         CGSize screenSize = screen.bounds.size;
@@ -21,8 +22,17 @@
             if (data == nil || error != nil) return;
             
             UIImage *image = [UIImage imageWithData:data];
-            PLStaticWallpaperImageViewController *wallpaper = [[PLStaticWallpaperImageViewController alloc] initWithUIImage:image];
-            if (wallpaper) [wallpaper setWallpaperForLocations:3];
+            if (image) {
+                PLStaticWallpaperImageViewController *wallpaper = [[PLStaticWallpaperImageViewController alloc] initWithUIImage:image];
+                if (wallpaper) {
+                    long long locations;
+                    if ([listenerName isEqualToString:@"com.ipadkid.unsplashwalls"]) locations = 3;
+                    if ([listenerName isEqualToString:@"com.ipadkid.unsplashwalls.home"]) locations = 2;
+                    if ([listenerName isEqualToString:@"com.ipadkid.unsplashwalls.lock"]) locations = 1;
+                    [wallpaper setWallpaperForLocations:locations];
+                }
+                if ([[[NSUserDefaults alloc] initWithSuiteName:@"com.ipadkid.unsplashwalls"] boolForKey:@"UWSaveImagesKey"]) UIImageWriteToSavedPhotosAlbum(image, NULL, NULL, NULL);
+            }
         }] resume];
     }
 }
@@ -30,6 +40,8 @@
 + (void)load {
     @autoreleasepool {
         [LASharedActivator registerListener:[self new] forName:@"com.ipadkid.unsplashwalls"];
+        [LASharedActivator registerListener:[self new] forName:@"com.ipadkid.unsplashwalls.home"];
+        [LASharedActivator registerListener:[self new] forName:@"com.ipadkid.unsplashwalls.lock"];
     }
 }
 

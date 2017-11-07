@@ -1,7 +1,7 @@
 Package: com.ipadkid.unsplashwalls
 Name: UnsplashWalls
 Depends: libactivator
-Version: 0.0.1
+Version: 0.0.2
 Architecture: iphoneos-arm
 Description: Setup an Activator gesture to set homescreen and lockscreen wallpapers to a random Unsplash image
 Maintainer: ipad_kid <ipadkid358@gmail.com>
