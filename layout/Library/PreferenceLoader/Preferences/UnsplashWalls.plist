@@ -31,6 +31,60 @@
 			<key>label</key>
 			<string>Save Images</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Set Activator Gestures</string>
+		</dict>
+		<dict>
+			<key>activatorListener</key>
+			<string>com.ipadkid.unsplashwalls</string>
+			<key>bundle</key>
+			<string>LibActivator</string>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>isController</key>
+			<true/>
+			<key>label</key>
+			<string>Both Wallpapers</string>
+		</dict>
+		<dict>
+			<key>activatorListener</key>
+			<string>com.ipadkid.unsplashwalls.home</string>
+			<key>bundle</key>
+			<string>LibActivator</string>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>isController</key>
+			<true/>
+			<key>label</key>
+			<string>Home Screen Wallpaper</string>
+		</dict>
+		<dict>
+			<key>activatorListener</key>
+			<string>com.ipadkid.unsplashwalls.lock</string>
+			<key>bundle</key>
+			<string>LibActivator</string>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>isController</key>
+			<true/>
+			<key>label</key>
+			<string>Lock Screen Wallpaper</string>
+		</dict>
+		<dict>
+			<key>activatorListener</key>
+			<string>com.ipadkid.unsplashwalls.save</string>
+			<key>bundle</key>
+			<string>LibActivator</string>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>isController</key>
+			<true/>
+			<key>label</key>
+			<string>Save Current Wallpaper</string>
+		</dict>
 	</array>
 	<key>title</key>
 	<string>UnsplashWalls</string>
