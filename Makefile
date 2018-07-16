@@ -1,3 +1,5 @@
+INSTALL_TARGET_PROCESSES = SpringBoard
+
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = UnsplashWalls
